@@ -77,3 +77,46 @@ border-top: 1px solid #f2f2f2;
 .switch.active {
     background: #0d6efd;
 }
+
+
+
+.content{
+  width: 100%;
+  overflow-x: scroll;
+  padding-bottom: 20px;
+}
+.list{
+  display: inline-flex;
+  white-space: nowrap;
+  min-width: 100%;
+}
+.list .item{
+  max-width: 300px !important;
+  margin: 0px 20px 6px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.list small{
+  font-size: 11px;
+  margin: 0px;
+  padding: 0px;
+}
+.list .item *  {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+input, select{
+  border: none !important;
+}
+.head{
+  font-weight: bold;
+}
+.box .item{
+  background: red !important;
+  display: inherit;
+}
+.box{
+  display: inline;
+}

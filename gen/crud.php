@@ -3,7 +3,7 @@
 // php gen/crud.php test name:string price:float valor:int
 include 'core/conexion.class.php';
 include 'config.php';
-
+$db = new DB( DB_HOST, DB_NAME,  DB_USER,  DB_PASS );
 $ENTIDAD = strtolower($argv[1]); array_shift($argv); array_shift($argv);
 $ATRIBUTOS = $argv;
 
@@ -253,15 +253,15 @@ function createInputs($atr){
   for (; $k < count($atr)  ; $k++) {
     $i = explode(':',$atr[$k]);
 
-    if(explode('_',$i)[0]=="id"){
+    if(explode('_',$i[0])[0]=="id" && explode('_',$i[0])[1]!="user"){
       $str.='<div class="col-md-12 ">
         <div class="form-floating  ">
           <select   name="'.$i[0].'"  required class="form-select shadow-sm"  >
-            <?php foreach ($'.explode('_',$i)[1].' as $key => $value): ?>
+            <?php foreach ($'.explode('_',$i[0])[1].' as $key => $value): ?>
                 <option value="<?= $value->id ?>"><?= $value->name ?></option>
            <?php endforeach; ?>
          </select>
-          <label for="floatingSelect">Seleccione una '.explode('_',$i)[1].'</label>
+          <label for="floatingSelect">Seleccione una '.explode('_',$i[0])[1].'</label>
         </div>
       </div>';
     }
@@ -312,7 +312,7 @@ fwrite($archivo,'<script>
         '.$ENTIDAD.'
       </div>
       <div class="">
-        <a href="/panel/item/create" class="btn btn-primary btn-sm ">Nuevo '.$ENTIDAD.'</a>
+        <a href="/panel/'.$ENTIDAD.'/create" class="btn btn-primary btn-sm ">Nuevo '.$ENTIDAD.'</a>
       </div>
     </div>
   </div>
@@ -484,15 +484,6 @@ fwrite($archivo,'<script>
   </div>
 </section>
 
-  <section>
-      <div class="container py-5 ">
-             <form class="" action="/panel/'.$ENTIDAD.'/update/put" method="post">
-                <input name="id" value="<?= $data->id ?>" required   hidden />
-                  '.createInputsUpdate($ATRIBUTOS).'
-                 <button type="submit" class="btn   my-3 btn-primary btn-sm">Actualizar</button>
-             </form>
-      </div>
-  </section>
 
   <section>
     <div class="container py-3">
@@ -526,12 +517,12 @@ function createInputsUpdate($atr){
   for (; $k < count($atr)  ; $k++) {
     $i = explode(':',$atr[$k]);
 
-    if(explode('_',$i)[0]=="id"){
+    if(explode('_',$i[0])[0]=="id" && explode('_',$i[0])[1]!="user"){
 
       $str.='  <div class="col-md-12 ">
           <div class="form-floating  ">
             <select  name="'.$i[0].'"  required class="form-select shadow-sm" aria-label="Default select example">
-              <?php foreach ($'.explode('_',$i)[1].' as $key => $value): ?>
+              <?php foreach ($'.explode('_',$i[0])[1].' as $key => $value): ?>
                 <?php if ($value->id == $data->'.$i[0].'): ?>
                   <option selected value="<?= $value->id ?>"><?= $value->name ?></option>
                 <?php else: ?>
@@ -539,7 +530,7 @@ function createInputsUpdate($atr){
                 <?php endif; ?>
              <?php endforeach; ?>
            </select>
-            <label for="floatingSelect">Seleccione una '.explode('_',$i)[1].'</label>
+            <label for="floatingSelect">Seleccione una '.explode('_',$i[0])[1].'</label>
           </div>
         </div>';
     }
@@ -580,7 +571,7 @@ fwrite($archivo,'<script>
            '.ucfirst($ENTIDAD).'
         </div>
         <div class="">
-          <a href="/panel/item/create" class="btn btn-primary btn-sm ">Nuevo Item</a>
+          <a href="/panel/item/create" class="btn btn-primary btn-sm ">Nuevo '.$ENTIDAD.'</a>
         </div>
       </div>
     </div>
@@ -716,11 +707,11 @@ fwrite($archivo,'<?php
 fflush($archivo);fclose($archivo);
 
 // Create VISTA SHOW
-$micarpeta = "vistas/$ENTIDAD";
+$micarpeta = "vistas/panel/$ENTIDAD";
 if (!file_exists($micarpeta)) {
   mkdir($micarpeta, 0777, true);
 }
-$archivo = fopen("vistas/$ENTIDAD/show.kaiwik","w+b");
+$archivo = fopen("vistas/panel/$ENTIDAD/show.kaiwik","w+b");
 if($archivo == false ){
   echo "Error al crear el archivo";
   die();
@@ -730,7 +721,7 @@ fwrite($archivo,'<script>
 </script>
 
 <kaiwik>
- 
+
   <section>
     <div class="container">
       <div class="py-3 d-flex justify-content-between align-items-end">
