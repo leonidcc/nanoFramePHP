@@ -1,0 +1,52 @@
+<script>
+console.log("Hola");
+    $form = document.getElementById('loginForm');
+    $msj = document.getElementById('msj');
+    $form.addEventListener("submit",async (e)=>{
+      e.preventDefault();
+      const data = new FormData($form);
+      let response = await fetch("/login/iniciar_session",{
+           method: 'POST',
+           body: data
+      });
+      let res = await response.json();
+      if(res.error){
+        $msj.innerHTML = res.mensaje
+        setTimeout(()=>{$msj.innerHTML =""},1000)
+      }
+      else location.href = "/panel";
+    })
+</script>
+
+<kaiwik>
+  <section class="bg-infomain">
+    <div class="container py-5 ">
+          <form id="loginForm" class="bg-light  p-5 opacity" method="POST" action="/ingresar/iniciar_session">
+            <h4 class="text-center">Iniciar sesion </h4>
+            <p id="msj" class="text-center"></p>
+            <div  class="mb-3">
+              <input required name="email" placeholder="email" type="email" class="form-control shadow-sm" value="<?= $email ?>">
+            </div>
+            <div class="mb-3">
+              <input required name="password" placeholder="password" type="password" class="form-control shadow-sm"  aria-describedby="emailHelp">
+            </div>
+            <div  class="mb-3">
+
+            <button type="submit" class="w-100 btn btn-primary btn-sm mb-1">Continuar</button>
+            <a href="/signup" type="button" class="w-100 btn btn-secondary  btn-sm  ">Crear nueva cuenta</a>
+
+            <small id="emailHelp" class="text-center form-text text-muted">Lorem ipsum dolor sit amet, consectetu gia</small>
+          </form>
+    </div>
+  </section>
+</kaiwik>
+
+<style>
+  #loginForm{
+      max-width: 400px;
+      margin:auto;
+  }
+  input{
+    border: none !important;
+  }
+</style>

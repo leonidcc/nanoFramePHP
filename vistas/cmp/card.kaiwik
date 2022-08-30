@@ -1,0 +1,22 @@
+<script>
+</script>
+
+
+<kaiwik>
+
+    <div class="shadow-sm rounded bg-1 my-1">
+          <a href="<?= $url ?>">
+            <div style="background:<?= $bg ?>;" class="py-2  py-md-5 text-center">
+              <img width="80px" src="<?= $img ?>" alt="">
+            </div>
+            <div class="bg-white text-center p-2 p-md-3 ">
+              <strong><?= $title ?> </strong>
+              <p class="m-0"> <?= $detail ?> </p>
+            </div>
+          </a>
+    </div>
+
+</kaiwik>
+
+<style>
+</style>

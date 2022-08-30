@@ -1,0 +1,176 @@
+<script>
+
+    let $listItem = document.getElementById("listItem");
+    let $filtroItem = document.getElementById("filtroItem");
+    $filtroItem.addEventListener("keyup",(e)=>{
+      $listItem.querySelectorAll(".list").forEach((item, i) => {
+        if(item.innerHTML.includes(e.target.value)) item.classList.remove("d-none");
+        else  item.classList.add("d-none");
+      });
+     })
+
+</script>
+
+
+<kaiwik>
+
+  <section>
+    <div class="container">
+      <div class="py-3 d-flex justify-content-between align-items-end">
+        <div class="">
+          <h4>LISTADO ITEM</h4>
+          <a href="/panel">PANEL </a> /
+          ITEM
+        </div>
+        <div class="">
+          <a href="/panel/item/create" class="btn btn-primary btn-sm ">Nuevo Item</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="row pb-3 ">
+        <div class=" col-md-8">
+          <div class="form-floating pb-2">
+             <input id="filtroItem" type="email" placeholder="EtiquetasNúmeroNombre" class="shadow-sm form-control" id="floatingInputValue" placeholder="name@example.com"  >
+             <label for="floatingInputValue">Escribe tu busqueda </label>
+           </div>
+        </div>
+        <div class="col-md-4 ">
+          <div class="form-floating  ">
+            <select class="form-select shadow-sm" id="floatingSelect" aria-label="Floating label select example">
+              <option value="1">One</option>
+              <option value="2">Two</option>
+            </select>
+            <label for="floatingSelect">Seleccione una categoría</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="content   mb-5" id="listItem">
+        <?php foreach ($data as $key => $value): ?>
+          <div class="list bg-white py-2 my-2 shadow-sm">
+            <div class="item">
+            <div>
+              <strong><?= $value->id ?></strong>
+            </div>
+            </div>
+            <div class="item">
+              <div>
+                <a href="/panel/item/delete/<?= $value->id?>" class="btn btn-danger btn-sm"><i class="bi bi-trash3-fill"></i></a>
+                <a href="/panel/item/update/<?= $value->id?>" class="btn btn-primary btn-sm"><i class="bi bi-pen"></i></a>
+                <a href="/item/<?= $value->id?>" class="btn btn-secondary btn-sm">Detalles</a> 
+              </div>
+            </div>
+
+
+            <div class="item">
+              <div>
+               <small class="text-primary">OPTION</small>
+               <div>
+                 <a href="/panel/user/active/13">
+                  <div class="disabled">
+                      <div class="switch active "></div>
+                  </div>
+                </a>
+               </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div >
+                <small class="text-primary">NAME</small>
+                <div> <?= $value->name?></div>
+              </div>
+            </div>
+            <div class="item">
+            <div >
+             <small class="text-primary">DESCRIPCI0N</small>
+             <div> <?= $value->description?> </div>
+            </div>
+            </div>
+            <div class="item">
+            <div >
+             <small class="text-primary">IMG</small>
+             <div> <?= $value->img?> </div>
+            </div>
+            </div>
+            <div class="item">
+            <div >
+             <small class="text-primary">PRICE</small>
+             <div> <?= $value->price?> </div>
+            </div>
+            </div>
+            <div class="item">
+            <div >
+             <small class="text-primary">ID_USER</small>
+             <div> <?= $value->id_user?> </div>
+            </div>
+            </div>
+            <div class="item">
+            <div >
+             <small class="text-primary">ID_CATEG</small>
+             <div> <?= $value->id_categ?> </div>
+            </div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+      </div>
+      </div>
+    </div>
+
+  </section>
+
+</kaiwik>
+
+<style>
+.content{
+  width: 100%;
+  overflow-x: scroll;
+  padding-bottom: 20px;
+}
+.list{
+  display: inline-flex;
+  white-space: nowrap;
+  min-width: 100%;
+}
+.list .item{
+  max-width: 300px !important;
+  margin: 0px 20px 6px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.list .item:nth-child(1n+4){
+  width: 110px
+}
+.list small{
+  font-size: 11px;
+  margin: 0px;
+  padding: 0px;
+}
+.list .item *  {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+input, select{
+  border: none !important;
+}
+.head{
+  font-weight: bold;
+}
+.box .item{
+  background: red !important;
+  display: inherit;
+}
+.box{
+  display: inline;
+}
+</style>

@@ -5,12 +5,18 @@
   class Home extends Context {
 
     function __construct(){
-      // code...
+      parent::__construct();
+      $this->title = "Inicio";
     }
 
     public function index($arg = []){
-      return "Home World";
+      $html  = ($this->sessionExist())
+         ?$this->create("cmp/navLog")
+         :$this->create("cmp/nav");
+      $html .= $this->create("inicio");
+      $html .= $this->create("cmp/footer");
+      return $this->ret($html);
     }
   }
 
- ?>
+ ?> 

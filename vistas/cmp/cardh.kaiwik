@@ -1,0 +1,25 @@
+<script>
+</script>
+
+
+<kaiwik>
+
+    <div class="shadow-sm bg-white rounded bg-1 my-1">
+      <a href="<?= $url ?> ">
+      <div class="row p-3">
+        <div class="col-8 ">
+          <strong><?= $title ?> </strong>
+          <p class="m-0"> Información de la cuenta y datos personales </p>
+
+        </div>
+        <div class="col-4">
+          <img width="80px" src="<?= $img ?>" alt="">
+        </div>
+      </div>
+      </a>
+    </div>
+
+</kaiwik>
+
+<style>
+</style>

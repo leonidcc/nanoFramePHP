@@ -1,0 +1,66 @@
+<script>
+
+</script>
+
+
+<kaiwik>
+  <section class="bloque my-2" style="background-image: url(/assets/img/shape1.svg);">
+    <div class="position-relative overflow-hidden p-3 p-md-5   text-center  ">
+
+      <div class=" col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4  ">Bienvenido  </h1>
+        <p class="lead  ">
+          Nanoframework es un entorno de trabajo PHP basado en el patrón MVC, ya tiene programado un sistema de usuarios, productos y categorías para que puedas replicar o añadir nuevas funcionalidades
+        </p>
+        <a class="btn btn-primary" href="/document">GET STARTED</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container pb-5">
+      <div class="row pb-5">
+        <div class="col-md-4">
+          <?= CREATE("cmp/card",[
+          "title"=>"GENERADORES",
+          "img" => "@recursos/icons/config.svg",
+          "detail" => "Lorem ipsum dolor sit amet, consectetur adipisicing",
+          "bg"=>"#FEC514"]
+          )?>
+        </div>
+        <div class="col-md-4">
+          <?= CREATE("cmp/card",[
+          "title"=>"ESTRUCTURA",
+          "img" => "@recursos/icons/config.svg",
+          "detail" => "Lorem ipsum dolor sit amet, consectetur adipisicing",
+          "bg"=>"#F04E98"]
+          ) ?>
+        </div>
+        <div class="col-md-4">
+          <?= CREATE("cmp/card",[
+          "title"=>"EJEMPLOS",
+          "img" => "@recursos/icons/config.svg",
+          "detail" => "Lorem ipsum dolor sit amet, consectetur adipisicing",
+          "bg"=>"#00BFB3"]
+          ) ?>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</kaiwik>
+
+<style>
+  .bloque{
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizelegibility;
+      padding: 7.5rem 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+
+</style>

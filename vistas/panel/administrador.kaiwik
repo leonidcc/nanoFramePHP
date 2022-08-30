@@ -1,0 +1,34 @@
+<script>
+
+</script>
+
+<kaiwik>
+  <section>
+    <div class="container  ">
+      <div class="text-black">
+        <strong>ADMINISTRADOR</strong>
+      </div>
+      <div class="row pb-5">
+        <div class="col-md-4">
+          <?= CREATE("cmp/cardh",[
+          "title"=>"USUARIOS",
+          "url"=>"/panel/user",
+          "img" => "@recursos/icons/team.svg"
+          ])?>
+        </div>
+        <div class="col-md-4">
+          <?= CREATE("cmp/cardh",[
+          "title"=>"ESTADISTICAS",
+          "url"=>"#",
+          "img" => "@recursos/icons/proba.svg"
+          ])?>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</kaiwik>
+
+<style>
+
+</style>

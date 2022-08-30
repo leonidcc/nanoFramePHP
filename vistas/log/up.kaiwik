@@ -1,0 +1,66 @@
+<script>
+    let $form = document.getElementById("registerForm");
+    $form.addEventListener("keyup",(e)=>{
+        if($form.pass1.value == $form.pass2.value ){
+            console.log("no coincide");
+            $form.querySelector('button').removeAttribute('disabled')
+        }
+        else {
+            $form.querySelector('button').setAttribute("disabled", "");
+        }
+    })
+
+    $msj = document.getElementById('msj');
+    $form.addEventListener("submit",async (e)=>{
+      e.preventDefault();
+      const data = new FormData($form);
+      let response = await fetch("/signup/registrarse",{
+           method: 'POST',
+           body: data
+      });
+      let res = await response.json();
+
+      if(res.error){
+        $msj.innerHTML = res.mensaje
+        setTimeout(()=>{$msj.innerHTML =""},1000)
+      }
+      else location.href = "/panel";
+    })
+</script>
+
+<kaiwik>
+  <section class="bg-infomain">
+    <div class="container py-5 ">
+        <form id="registerForm" class="bg-light   p-5 opacity" method="POST" >
+          <h4 class="text-center">Registrarse </h4>
+          <p id="msj" class="text-center text-danger"></p>
+          <div  class="mb-3">
+            <input required name="name" placeholder="Nombre" type="text" class="form-control shadow-sm" >
+          </div>
+          <div  class="mb-3">
+            <input required name="email" placeholder="Email" type="email" class="form-control shadow-sm" >
+          </div>
+          <div class="mb-3">
+            <input required name="pass1" placeholder="password" type="password" class="form-control shadow-sm"  aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <input required name="pass2" placeholder="password" type="password" class="form-control shadow-sm"  aria-describedby="emailHelp">
+          </div>
+          <div  class="mb-3">
+          <button disabled type="submit" class="w-100 btn btn-primary btn-sm mb-1">Continuar</button>
+          <a href="/login" type="button" class="w-100 btn btn-secondary  btn-sm  ">Ya tengo una cuenta</a>
+          <small id="emailHelp" class="text-center form-text text-muted">Lorem ipsum dolor sit amet, consectetu gia</small>
+        </form>
+    </div>
+  </section>
+</kaiwik>
+
+<style>
+  #registerForm{
+      max-width: 400px;
+      margin:auto;
+  }
+  input{
+    border: none !important;
+  }
+</style>

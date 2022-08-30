@@ -1,0 +1,87 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section>
+    <div class="container">
+      <div class="py-3 d-flex justify-content-between align-items-end">
+        <div class="">
+          <h4>ACTUALIZAR ITEM</h4>
+          <a href="/panel">PANEL </a> /
+          <a href="/panel/item">ITEM </a> /
+           NEW
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container py-3">
+      <form class="" action="/panel/item/create/add" method="post">
+        <div class="row pb-3 ">
+          <div class=" col-md-12">
+            <div class="form-floating pb-2">
+               <input
+                class="shadow-sm form-control"
+                name="name"   required  placeholder="name"
+                >
+               <label >name </label>
+             </div>
+          </div>
+          <div class=" col-md-12">
+            <div class="form-floating pb-2">
+               <input
+                class="shadow-sm form-control"
+                name="description"  required  placeholder="description"
+                >
+               <label >description </label>
+             </div>
+          </div>
+          <div class=" col-md-12">
+            <div class="form-floating pb-2">
+               <input
+                class="shadow-sm form-control"
+                name="img"   required  placeholder="img"
+                >
+               <label >img </label>
+             </div>
+          </div>
+          <div class=" col-md-12">
+            <div class="form-floating pb-2">
+               <input
+                class="shadow-sm form-control"
+                name="price"   required  placeholder="price"
+                >
+               <label >price </label>
+             </div>
+          </div>
+          <div class="col-md-12 ">
+            <div class="form-floating  ">
+              <select name="id_categ" required class="form-select shadow-sm" aria-label="Default select example">
+                <?php foreach ($categorias as $key => $value): ?>
+                    <option value="<?= $value->id ?>"><?= $value->name ?></option>
+               <?php endforeach; ?>
+             </select>
+              <label for="floatingSelect">Seleccione una categoría</label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn my-3 btn-primary">Agregar</button>
+      </form>
+    </div>
+  </section>
+
+ 
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

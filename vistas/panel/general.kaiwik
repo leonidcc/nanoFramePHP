@@ -1,0 +1,28 @@
+<script>
+
+</script>
+
+<kaiwik>
+  <section>
+    <div class="container py-5">
+      <h2>Hola <?= $userName ?> </h2>
+      <p>Lorem ipsum dolor sit amet,  aecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div class="text-black">
+        <strong>GENERAL</strong>
+      </div>
+      <div class="row ">
+
+        <?php foreach ($cards as $key => $value): ?>
+          <div class="col-md-3">
+            <?= CREATE("cmp/card",$value)?>
+          </div>
+        <?php endforeach; ?> 
+      </div>
+    </div>
+  </section>
+
+</kaiwik>
+
+<style>
+
+</style>

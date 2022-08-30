@@ -1,0 +1,35 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section >
+      <div class="container pt-5">
+        <h4> Detalles </h4>
+        <a href="/">Home</a> / <a href="/item"> Item</a> / <?= $data->id?>
+      </div>
+  <section />
+
+  <section>
+      <div class="container py-5 ">
+      <strong>name</strong><p><?= $data->name ?></p>
+    <strong>description</strong><p><?= $data->description ?></p>
+    <strong>img</strong><p><?= $data->img ?></p>
+    <strong>price</strong><p><?= $data->price ?></p>
+    <strong>id_user</strong><p><?= $data->id_user ?></p>
+    <strong>id_categ</strong><p><?= $data->id_categ ?></p>
+
+      </div>
+   </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

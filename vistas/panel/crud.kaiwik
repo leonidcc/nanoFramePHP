@@ -1,0 +1,44 @@
+<script>
+
+</script>
+
+<kaiwik>
+  <section>
+    <div class="container  ">
+      <div class="text-black">
+        <strong>CRUD</strong>
+      </div>
+      <div class="row pb-5">
+        <div class="col-md-4">
+          <?= CREATE("cmp/cardh",[
+          "title"=>"PRODUCTO",
+          "bg"=>"#FEC514",
+          "url"=>"/panel/item",
+          "img" => "@recursos/icons/items.svg"]
+          )?>
+        </div>
+        <div class="col-md-4">
+          <?= CREATE("cmp/cardh",[
+          "title"=>"CATEGORÍA",
+          "bg"=>"#FEC514",
+          "img" => "@recursos/icons/categoria.svg"
+          ]
+          )?>
+        </div>
+        <div class="col-md-4">
+          <?= CREATE("cmp/cardh",[
+          "title"=>"PEDIDO",
+          "bg"=>"#FEC514",
+          "img" => "@recursos/icons/note.svg"
+          ]
+          )?>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</kaiwik>
+
+<style>
+
+</style>
