@@ -8,22 +8,21 @@
      public function index(){
          $us   = $this->sessionUser();
          $html  = $this->create("cmp/navLog");
-         $html  .= $this->create("cmp/title",[
-             "title" => "Mis datos"
-         ]);
-         $html  .=  $this->create("admin/userdata", [
+
+         $html  .=  $this->create("panel/users/my", [
                  "name" =>$us->name,
-                 "email" => $us->email,
-                 "phone" => $us->phone
+                 "email" =>$us->email,
+                 "phone" =>$us->phone
          ]);
          $html  .= $this->create("cmp/footer");
          return $this->ret($html);
      }
 
 
+
      public function update( ){
          $usuario   = $this->sessionUser();
-         $this->model("user")->update($_POST["tel"], $_POST["name"],$usuario->id);
+         $this->model("users")->updatemy($_POST["tel"], $_POST["name"],$usuario->id);
          header("location:/panel/my");
      }
 }

@@ -46,6 +46,9 @@
           <div class="mb-3">
             <input required name="pass2" placeholder="password" type="password" class="form-control shadow-sm"  aria-describedby="emailHelp">
           </div>
+          <div class="mb-3">
+            <input   name="phone" placeholder="tel" type="tel" class="form-control shadow-sm"  aria-describedby="emailHelp">
+          </div>
           <div  class="mb-3">
           <button disabled type="submit" class="w-100 btn btn-primary btn-sm mb-1">Continuar</button>
           <a href="/login" type="button" class="w-100 btn btn-secondary  btn-sm  ">Ya tengo una cuenta</a>

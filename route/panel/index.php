@@ -16,34 +16,14 @@
            "userName" => $this->sessionUser()->name,
            "cards" => $this->getGeneralCard()
          ]);
-
          $html  .= $this->create("panel/crud",[
            "userName" => $this->sessionUser()->name
          ]);
-         $html  .= $this->create("panel/administrador",[
-           "userName" => $this->sessionUser()->name
-         ]);
-
-         $html  .= $this->create("cmp/title",[
-             "title" => "ADMIN"
-         ]);
-          $html  .= $this->create("admin",[
-              "name" => "General",
-              "cards" => $this->getGeneralCard()
-          ]);
-           if($usuario->status == 1){
-          $html  .= $this->create("admin",[
-              "name" => "Modelo",
-              "cards" => $this->getModelCard()
-          ]);
-        }
-           if($this->sessionUserIs("ADMIN")){
-               $html  .= $this->create("admin",[
-                   "name" => "Administrador",
-                   "cards" => $this->getAdminCard()
-               ]);
-           }
-         $html  .= $this->create("admin");
+         if($this->sessionUserIs("ADMIN")){
+           $html  .= $this->create("panel/administrador",[
+             "userName" => $this->sessionUser()->name
+           ]);
+         }
          $html  .= $this->create("cmp/footer");
          return $this->ret($html);
      }

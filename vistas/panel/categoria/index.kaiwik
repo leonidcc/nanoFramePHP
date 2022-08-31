@@ -1,0 +1,54 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section>
+    <div class="container">
+      <div class="py-3 d-flex justify-content-between align-items-end">
+        <div class="">
+          <h4>Categoria</h4>
+          <a href="/">Home </a> /
+           Categoria
+        </div>
+        <div class="">
+          <a href="/panel/item/create" class="btn btn-primary btn-sm ">Nuevo categoria</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section >
+      <div class="container py-3">
+
+          <div class="row">
+              <?php foreach ($data as $key => $value): ?>
+                <div class="col-md-4 ">
+                  <div class="card p-3 m-2">
+                      <p class="text-muted"><?= $value->id?></p>
+                        <p><?= $value->id_user ?></p>
+                 <p><?= $value->name ?></p>
+                 <p><?= $value->description ?></p>
+                 
+                      <a href="/categoria/<?= $value->id?>">Detalles</a>
+                    </div>
+                  </div>
+              <?php endforeach; ?>
+          </div>
+
+
+      </div>
+  </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

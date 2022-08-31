@@ -107,7 +107,7 @@ class Context {
       unset($_SESSION['userId']);
   }
   function sessionUser(){
-      $user = $this->model("user")->get($_SESSION['userId']);
+      $user = $this->model("users")->getByEmail($_SESSION['userId']);
       if($user != []) return $user[0];
       return null;
   }
@@ -116,9 +116,9 @@ class Context {
   }
 
   function sessionUserIs($rol){
-    $user = $this->model("user")->get($_SESSION['userId']);
+    $user = $this->model("users")->getByEmail($_SESSION['userId']);
     if($user != []){
-      $roles = explode(" ", $user[0]->rol);
+      $roles = explode(" ", $user[0]->rol); 
       return in_array("ROL_".$rol,$roles);
     }
     return false;

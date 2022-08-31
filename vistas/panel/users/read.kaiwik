@@ -1,0 +1,189 @@
+<script>
+
+    let $listusers = document.getElementById("listusers");
+    let $filtrousers = document.getElementById("filtrousers");
+    $filtrousers.addEventListener("keyup",(e)=>{
+      $listusers.querySelectorAll(".list").forEach((item, i) => {
+        if(item.innerHTML.includes(e.target.value)) item.classList.remove("d-none");
+        else  item.classList.add("d-none");
+      });
+     })
+
+</script>
+
+<kaiwik>
+
+<section>
+  <div class="container">
+    <div class="py-3 d-flex justify-content-between align-items-end">
+      <div class="">
+        <h4>Listando Users</h4>
+        <a href="/panel">Panel </a> /
+        users
+      </div>
+      <div class="">
+        <a href="/panel/users/create" class="btn btn-primary btn-sm ">Nuevo users</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="row pb-3 ">
+      <div class=" col-md-8">
+        <div class="form-floating pb-2">
+           <input id="filtrousers" type="email" placeholder="EtiquetasNúmeroNombre" class="shadow-sm form-control" id="floatingInputValue" placeholder="name@example.com"  >
+           <label for="floatingInputValue">Escribe tu busqueda </label>
+         </div>
+      </div>
+      <div class="col-md-4 ">
+        <div class="form-floating  ">
+          <select class="form-select shadow-sm"   aria-label="Floating label select example">
+            <option value="1">One</option>
+            <option value="2">Two</option>
+          </select>
+          <label for="floatingSelect">Seleccione una categoría</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="content   mb-5" id="listusers">
+        <?php foreach ($data as $key => $value): ?>
+          <div class="list bg-white py-2 my-2 shadow-sm">
+            <div class="item">
+            <div>
+              <strong><?= $value->id ?></strong>
+            </div>
+            </div>
+            <div class="item">
+              <div>
+                <a href="/panel/users/delete/<?= $value->id?>" class="btn btn-danger btn-sm"><i class="bi bi-trash3-fill"></i></a>
+                <a href="/panel/users/update/<?= $value->id?>" class="btn btn-primary btn-sm"><i class="bi bi-pen"></i></a>
+              </div>
+            </div>
+
+
+            <div class="item">
+              <div>
+               <small class="text-primary">STATUS</small>
+               <div>
+                 <a href="/panel/users/active/<?= $value->id?>">
+                  <div class="disabled">
+                      <div class="switch <?= ($value->status)?'active':'' ?>  "></div>
+                  </div>
+                </a>
+               </div>
+              </div>
+            </div>
+
+
+
+            <div class="item">
+      <div >
+        <small class="text-primary text-uppercase">name</small>
+        <div> <?= $value->name ?></div>
+      </div>
+    </div>
+
+                 <div class="item">
+      <div >
+        <small class="text-primary text-uppercase">email</small>
+        <div> <?= $value->email ?></div>
+      </div>
+    </div>
+
+    <div class="item">
+    <div >
+    <small class="text-primary text-uppercase">phone</small>
+    <div> <?= $value->phone ?></div>
+    </div>
+    </div>
+
+    <div class="item">
+    <div >
+    <small class="text-primary text-uppercase">fecha_registro</small>
+    <div> <?= $value->fecha_registro ?></div>
+    </div>
+    </div>
+
+
+                 <div class="item">
+      <div >
+        <small class="text-primary text-uppercase">rol</small>
+        <div> <?= $value->rol ?></div>
+      </div>
+    </div>
+
+    <div class="item">
+<div >
+<small class="text-primary text-uppercase">password</small>
+<div> <?= $value->password ?></div>
+</div>
+</div>
+
+
+
+        </div>
+        <?php endforeach; ?>
+      </div>
+      </div>
+    </div>
+
+  </section>
+
+</kaiwik>
+
+<style>
+
+
+.content{
+  width: 100%;
+  overflow-x: scroll;
+  padding-bottom: 20px;
+}
+.list{
+  display: inline-flex;
+  white-space: nowrap;
+  min-width: 100%;
+}
+.list .item{
+  max-width: 300px !important;
+  margin: 0px 20px 6px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.list .item:nth-child(1n+4){
+  width: 110px
+}
+.list small{
+  font-size: 11px;
+  margin: 0px;
+  padding: 0px;
+}
+.list .item *  {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+input, select{
+  border: none !important;
+}
+.head{
+  font-weight: bold;
+}
+.box .item{
+  background: red !important;
+  display: inherit;
+}
+.box{
+  display: inline;
+}
+
+</style>

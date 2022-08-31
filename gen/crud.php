@@ -343,7 +343,7 @@ fwrite($archivo,'<script>
   <section>
     <div class="container">
       <div class="row">
-        <div class="content   mb-5" id="listItem">
+        <div class="content   mb-5" id="list'.$ENTIDAD.'">
         <?php foreach ($data as $key => $value): ?>
           <div class="list bg-white py-2 my-2 shadow-sm">
             <div class="item">
@@ -383,12 +383,52 @@ fwrite($archivo,'<script>
 </kaiwik>
 
 <style>
-    .colo{
-        color: blue;
-    }
-    .colo2{
-        color: green;
-    }
+
+
+.content{
+  width: 100%;
+  overflow-x: scroll;
+  padding-bottom: 20px;
+}
+.list{
+  display: inline-flex;
+  white-space: nowrap;
+  min-width: 100%;
+}
+.list .item{
+  max-width: 300px !important;
+  margin: 0px 20px 6px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.list .item:nth-child(1n+4){
+  width: 110px
+}
+.list small{
+  font-size: 11px;
+  margin: 0px;
+  padding: 0px;
+}
+.list .item *  {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+input, select{
+  border: none !important;
+}
+.head{
+  font-weight: bold;
+}
+.box .item{
+  background: red !important;
+  display: inherit;
+}
+.box{
+  display: inline;
+}
+
 </style>
 ');
 fflush($archivo);fclose($archivo);
@@ -634,14 +674,14 @@ fwrite($archivo,'<?php
  class Update  extends Context {
      function __construct( ){
          parent::__construct();
-         $this->title = '.$ENTIDAD.';
+         $this->title = "'.$ENTIDAD.'";
      }
      public function index($args = []){
          $html  = ($this->sessionExist())
             ?$this->create("cmp/navLog")
             :$this->create("cmp/nav");
 
-         $data = $this->model('.$ENTIDAD.')->get($args[0]);
+         $data = $this->model("'.$ENTIDAD.'")->get($args[0]);
          $html .= $this->create("panel/'.$ENTIDAD.'/update", $data[0]);
 
          // $html .= $this->create("panel/'.$ENTIDAD.'/update",[

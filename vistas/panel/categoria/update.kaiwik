@@ -1,0 +1,71 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+<section>
+  <div class="container">
+    <div class="py-3 d-flex justify-content-between align-items-end">
+      <div class="">
+        <h4>Actualizar  Categoria</h4>
+        <a href="/panel">Panel </a> /
+        <a href="/panel/categoria">Categoria </a> /
+         update / <?= $data->id ?>
+      </div>
+      <div class="">
+        <a href="/panel/Categoria/create" class="btn btn-primary btn-sm ">Nuevo Categoria</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section>
+    <div class="container py-3">
+      <form class="" action="/panel/categoria/update/put" method="post">
+        <div class="row pb-3 ">
+          <input name="id" value="<?= $data->id ?>" required   hidden />
+            <div class=" col-md-12">
+                <div class="form-floating pb-2">
+                   <input
+                    class="shadow-sm form-control"
+                    name="id_user" value="<?= $data->id_user ?>" required  placeholder="id_user"
+                    >
+                   <label >id_user </label>
+                 </div>
+              </div><div class=" col-md-12">
+                <div class="form-floating pb-2">
+                   <input
+                    class="shadow-sm form-control"
+                    name="name" value="<?= $data->name ?>" required  placeholder="name"
+                    >
+                   <label >name </label>
+                 </div>
+              </div><div class=" col-md-12">
+                <div class="form-floating pb-2">
+                   <input
+                    class="shadow-sm form-control"
+                    name="description" value="<?= $data->description ?>" required  placeholder="description"
+                    >
+                   <label >description </label>
+                 </div>
+              </div>
+        </div>
+        <button type="submit" class="btn my-3 btn-primary">Actualizar</button>
+      </form>
+    </div>
+  </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>
+
+

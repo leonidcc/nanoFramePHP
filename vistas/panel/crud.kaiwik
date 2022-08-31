@@ -21,6 +21,7 @@
           <?= CREATE("cmp/cardh",[
           "title"=>"CATEGORÍA",
           "bg"=>"#FEC514",
+          "url"=>"/panel/categoria",
           "img" => "@recursos/icons/categoria.svg"
           ]
           )?>

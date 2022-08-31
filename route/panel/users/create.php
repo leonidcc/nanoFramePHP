@@ -2,16 +2,16 @@
  class Create  extends Context {
      function __construct( ){
          parent::__construct();
-         $this->title = "Categoria";
+         $this->title = "Users";
      }
      public function index(){
          $html  = ($this->sessionExist())
             ?$this->create("cmp/navLog")
             :$this->create("cmp/nav");
 
-         $html .= $this->create("panel/categoria/create");
+         $html .= $this->create("panel/users/create");
 
-         // $html .= $this->create("panel/categoria/create",[
+         // $html .= $this->create("panel/users/create",[
          //   "categorias" => $this->model("categoria")->gets()
          // ]);
 
@@ -20,12 +20,16 @@
      }
 
      public function add($value=""){
-       $this->model("categoria")->create(
-           $this->sessionUser()->id,
+       $this->model("users")->create(
            $_POST["name"],
-           $_POST["description"]
+           $_POST["password"],
+           $_POST["email"],
+           $_POST["rol"],
+           $_POST["status"],
+           $_POST["phone"],
+           $_POST["fecha_registro"]
         );
-       header("location:/panel/categoria");
+       header("location:/panel/users");
      }
 }
 ?>

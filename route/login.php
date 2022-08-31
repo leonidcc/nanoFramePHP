@@ -15,7 +15,7 @@
 
       public function iniciar_session($arg = null){
 
-          $data = $this->model("user")->get($_POST["email"]);
+          $data = $this->model("users")->getByEmail($_POST["email"]);
 
           if(count($data) > 0){
                if(password_verify($_POST["password"], $data[0]->password)){

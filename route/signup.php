@@ -15,10 +15,15 @@
 
      public function registrarse($arg = null){
           $msj = "";
-          if($this->model("user")->exist($_POST["email"]))
+          if($this->model("users")->exist($_POST["email"]))
           $msj = "El usuario con el email ya existe";
           else{
-            $this->model("user")->create($_POST["name"],password_hash( $_POST["pass1"], PASSWORD_DEFAULT), $_POST["email"]);
+            $this->model("users")->registro(
+              $_POST["name"],
+              password_hash( $_POST["pass1"], PASSWORD_DEFAULT),
+              $_POST["email"],
+              ($_POST["phone"])?$_POST["phone"]:"000"
+            );
             $this->sessionStart($_POST["email"]);
             return $this->ok($_POST["email"],"Correctamente");
           }

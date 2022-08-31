@@ -1,0 +1,137 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+<section>
+  <div class="container">
+    <div class="py-3 d-flex justify-content-between align-items-end">
+      <div class="">
+        <h4>Actualizar  Users</h4>
+        <a href="/panel">Panel </a> /
+        <a href="/panel/users">Users </a> /
+         update / <?= $data->id ?>
+      </div>
+      <div class="">
+        <a href="/panel/users/create" class="btn btn-primary btn-sm ">Nuevo Users</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section>
+    <div class="container py-3">
+
+
+      <form class="" action="/panel/users/update/put" method="post">
+        <div class="row py-3 ">
+          <input name="id" value="<?= $data->id ?>" required   hidden />
+            <div class=" col-md-12">
+                <div class="form-floating pb-2">
+                   <input
+                    class="shadow-sm form-control"
+                    name="name" value="<?= $data->name ?>" required  placeholder="name"
+                    >
+                   <label >name </label>
+                 </div>
+              </div><div class=" col-md-12">
+                <div class="form-floating pb-2">
+                   <input readonly
+                    class="shadow-sm form-control"
+                    name="password" value="<?= $data->password ?>" required  placeholder="password"
+                    >
+                   <label >password </label>
+                 </div>
+              </div><div class=" col-md-12">
+                <div class="form-floating pb-2">
+                   <input readonly
+                    class="shadow-sm form-control"
+                    name="email" value="<?= $data->email ?>" required  placeholder="email"
+                    >
+                   <label >email </label>
+                 </div>
+              </div><div class=" col-md-12">
+                <div class="form-floating pb-2">
+                   <input readonly
+                    class="shadow-sm form-control"
+                    name="rol" value="<?= $data->rol ?>" required  placeholder="rol"
+                    >
+                   <label >rol </label>
+                 </div>
+              </div><div class=" col-md-12">
+                <div class="form-floating pb-2">
+                   <input
+                    class="shadow-sm form-control"
+                    name="status" value="<?= $data->status ?>" required  placeholder="status"
+                    type="number" min="0" max="1"
+                    >
+                   <label >status </label>
+                 </div>
+              </div><div class=" col-md-12">
+                <div class="form-floating pb-2">
+                   <input
+                    class="shadow-sm form-control"
+                    name="phone" value="<?= $data->phone ?>" required  placeholder="phone"
+                    >
+                   <label >phone </label>
+                 </div>
+              </div><div class=" col-md-12">
+                <div class="form-floating pb-2">
+                   <input readonly
+                    class="shadow-sm form-control"
+                    name="fecha_registro" value="<?= $data->fecha_registro ?>" required  placeholder="fecha_registro"
+                    >
+                   <label >fecha_registro </label>
+                 </div>
+              </div>
+        </div>
+        <button type="submit" class="btn my-3 btn-primary">Actualizar</button>
+      </form>
+
+
+
+        <div class="row">
+
+          <div class="col-md-6">
+            <form class="d-flex align-items-end " action="/panel/users/add_rol" method="post">
+              <input type="text" hidden class="form-control me-2" name="id" value="<?= $data->id ?>">
+              <div class=" w-100">
+                <div class="form-floating  ">
+                  <input
+                  class="shadow-sm form-control"
+                  name="rol"  required  placeholder="rol"
+                  >
+                  <label >Nuevo rol</label>
+                </div>
+              </div>
+              <button type="submit" class="py-3  btn btn-secondary" name="button">Añadir</button>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <div class="pb-2 d-flex">
+              <?php foreach  (explode(" ", $data->rol)  as $key => $value): ?>
+                <div class="border-rounded me-2 p-3  d-flex justify-content-between shadow-sm bg-white p-1 my-1">
+                  <?= explode("_",$value)[1] ?>
+                  <a class="ps-3" href="/panel/users/rm_rol/<?= $data->id ?>/<?= $value ?>"><i class="text-danger bi bi-trash3-fill"></i></a>
+                </div>
+              <?php endforeach; ?>
+            </div>
+          </div>
+
+        </div>
+
+    </div>
+  </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

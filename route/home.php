@@ -9,7 +9,7 @@
       $this->title = "Inicio";
     }
 
-    public function index($arg = []){
+    public function index($arg = [  ]){
       $html  = ($this->sessionExist())
          ?$this->create("cmp/navLog")
          :$this->create("cmp/nav");

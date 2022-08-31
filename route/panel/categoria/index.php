@@ -1,5 +1,5 @@
 <?php
- class Categoria  extends Context { 
+ class Categoria  extends Context {
      function __construct( ){
          parent::__construct();
          $this->title = "Categoria";
@@ -11,7 +11,7 @@
 
          $data = $this->model("categoria")->gets();
 
-         $html .= $this->create("categoria/read", $data);
+         $html .= $this->create("panel/categoria/read", $data);
 
          $html  .= $this->create("cmp/footer");
          return $this->ret($html);

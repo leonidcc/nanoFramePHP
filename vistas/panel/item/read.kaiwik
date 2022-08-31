@@ -65,12 +65,12 @@
               <div>
                 <a href="/panel/item/delete/<?= $value->id?>" class="btn btn-danger btn-sm"><i class="bi bi-trash3-fill"></i></a>
                 <a href="/panel/item/update/<?= $value->id?>" class="btn btn-primary btn-sm"><i class="bi bi-pen"></i></a>
-                <a href="/item/<?= $value->id?>" class="btn btn-secondary btn-sm">Detalles</a> 
+                <a href="/item/<?= $value->id?>" class="btn btn-secondary btn-sm">Detalles</a>
               </div>
             </div>
 
 
-            <div class="item">
+            <!-- <div class="item">
               <div>
                <small class="text-primary">OPTION</small>
                <div>
@@ -81,7 +81,7 @@
                 </a>
                </div>
               </div>
-            </div>
+            </div> -->
 
             <div class="item">
               <div >
@@ -130,6 +130,8 @@
 </kaiwik>
 
 <style>
+
+
 .content{
   width: 100%;
   overflow-x: scroll;
@@ -173,4 +175,5 @@ input, select{
 .box{
   display: inline;
 }
+
 </style>

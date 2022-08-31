@@ -10,15 +10,14 @@ class Model_Categoria{
         $data  = $this->db->consult($qry, [$id]);
         return $data;
     }
+    public function getsByUser($id){
+        $qry = "SELECT * FROM `categoria`  WHERE id_user = ? ";
+        $data  = $this->db->consult($qry, [$id]);
+        return $data;
+    }
     public function gets(){
         $qry = "SELECT * FROM `categoria` ";
         $data  = $this->db->consult($qry, []);
-        return $data;
-    }
-
-    public function getsByUser($id){
-        $qry = "SELECT * FROM  `categoria`  WHERE id_user = ? ";
-        $data  = $this->db->consult($qry, [$id]);
         return $data;
     }
 

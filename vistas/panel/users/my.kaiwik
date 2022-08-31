@@ -1,0 +1,62 @@
+<script>
+
+</script>
+
+<kaiwik>
+  <section>
+    <div class="container">
+      <div class="py-3 d-flex justify-content-between align-items-end">
+        <div class="">
+          <h4>Usuario</h4>
+          <a href="/panel"> Panel </a> / Mis datos
+        </div>
+      </div>
+
+      <form class="" action="/panel/my/update" method="post">
+        <div class="row pb-3 ">
+          <div class=" col-md-12">
+            <div class="form-floating pb-2">
+               <input
+                class="shadow-sm form-control"
+                name="name" value="<?= $name ?>"  required  placeholder="name"
+                >
+               <label >Nombre </label>
+             </div>
+          </div>
+          <div class=" col-md-12">
+            <div class="form-floating pb-2">
+               <input
+                class="shadow-sm form-control"
+                name="tel" value="<?= $phone ?>"  required  placeholder="name"
+                >
+               <label>Número de celular</label>
+             </div>
+          </div>
+          <div class=" col-md-12">
+            <div class="form-floating pb-2">
+               <input
+                class="shadow-sm form-control"
+                readonly  value="<?= $email ?>"  required  placeholder="name"
+                >
+               <label >Email</label>
+             </div>
+          </div>
+          <div class="col-md-12">
+            <button type="submit" class="btn my-3 btn-primary">
+              Guardar
+            </button>
+          </div>
+      </form>
+
+    </div>
+  </section>
+</kaiwik>
+
+<style>
+
+ 
+input, select{
+  border: none !important;
+}
+
+</style>
