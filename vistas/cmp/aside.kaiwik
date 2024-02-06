@@ -1,0 +1,150 @@
+<script>
+let btnAside = document.getElementById('btnAside');
+let open = true;
+btnAside.addEventListener("click",()=>{
+  document.getElementById('aside').style.width = open?"300px":"";
+  document.getElementsByClassName('small')[0].style.display = open?"none":"block"
+  document.getElementsByClassName('big')[0].style.display =  !open?"none":"block"
+  open = !open;
+})
+</script>
+
+
+<kaiwik>
+ <aside id="aside" class="aside open bg-primary">
+   <div class="py-4" >
+     <div class="small">
+       <a href="/my" class="text-light text-center">
+         <small>
+           <div class="">
+             <strong>Yo</strong>
+           </div>
+           <div class="">
+             <i class="bi bi-file-earmark-plus" ></i>
+           </div>
+           <div class="">
+             <small>Mis <br>Datos</small>
+           </div>
+         </small>
+       </a>
+       <a href="#" class="text-light text-center">
+         <small>
+           <hr>
+           <div class="">
+             <strong>Item</strong>
+           </div>
+           <div class="">
+             <i class="bi bi-file-earmark-plus" ></i>
+           </div>
+           <div class="">
+             <small>Configurar</small>
+           </div>
+         </small>
+       </a> 
+       <a href="#" class="text-light text-center">
+         <small>
+           <hr>
+           <div class="">
+             <strong>Admin</strong>
+           </div>
+           <div class="">
+             <i class="bi bi-file-earmark-plus" ></i>
+           </div>
+           <div class="">
+             <small>Configurar</small>
+           </div>
+         </small>
+       </a>
+     </div>
+     <div class="big px-4" style="display:none">
+      <a href="#" class="text-light ">
+      <div  >
+      <strong>USER</strong>
+      </div>
+      <div  >
+      <i class="bi bi-file-earmark-plus" ></i>
+      Nueva entrada
+      </div>
+      </a>
+      <a href="#" class="text-light ">
+      <hr>
+      <div  >
+      <strong>USER</strong>
+      </div>
+      <div  >
+      <i class="bi bi-file-earmark-plus" ></i>
+      Configurar
+      </div>
+      </a>
+      <a href="#" class="text-light ">
+      <hr>
+      <div  >
+      <strong>USER</strong>
+      </div>
+      <div  >
+      <i class="bi bi-file-earmark-plus" ></i>
+      Configurar
+      </div>
+      </a>
+      <a href="#" class="text-light ">
+      <hr>
+      <div  >
+      <strong>USER</strong>
+      </div>
+      <div  >
+      <i class="bi bi-file-earmark-plus" ></i>
+      Configurar
+      </div>
+      </a>
+     </div>
+
+     </div>
+     <div id="btnAside" class="btnAside mt-5">
+       <i class="bi bi-caret-right-fill"></i>
+     </div>
+     </div>
+   </div>
+ </aside>
+</kaiwik>
+
+<style>
+.btnAside{
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  height: 45px;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: auto;
+}
+
+.aside{
+  height: 100%;
+  position: fixed;
+  width:85px;
+  left: 0px;
+  min-width: 80px;
+  top: 0px;
+  z-index: 1;
+  padding-top: 50px;
+  transition: all .5s ease;
+}
+.aside strong{
+  font-size: 10px;
+}
+.aside i{
+  font-size: 22px;
+}
+.aside *{
+  color: rgba(255,255, 255, 0.8) !important;
+}
+.aside a:hover *{
+  color: rgba(255,255, 255, 1) !important;
+}
+section,footer{
+  margin-left: 85px;
+}
+
+</style>

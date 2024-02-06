@@ -24,6 +24,7 @@
              "userName" => $this->sessionUser()->name
            ]);
          }
+         $html .= $this->create("cmp/aside");
          $html  .= $this->create("cmp/footer");
          return $this->ret($html);
      }
@@ -63,40 +64,7 @@
 
             ],
         ];
-     }
-     private function getModelCard()  {
-         return [
-             [
-                 "img" => "@recursos/icons/items.svg",
-                 "title" => "Productos",
-                 "url" => "/panel/item"
-            ],
-             [
-                 "img" => "@recursos/icons/categoria.svg",
-                 "title" => "Categorias",
-                 "url" => "/panel/categoria"
-            ],
-             [
-                 "img" => "@recursos/icons/note.svg",
-                 "title" => "Pedidos",
-                 "url" => "/adminPedidos"
-            ]
-        ];
-     }
-     private function getAdminCard()  {
-         return [
-             [
-                "img" => "@recursos/icons/team.svg",
-                 "title" => "Usuarios",
-                 "url" => "/panel/user"
-            ],
-             [
-                 "img" => "@recursos/icons/proba.svg",
-                 "title" => "Estadisticas",
-                 "url" => "/"
-            ],
-        ];
-     }
+     } 
 }
 
 ?>

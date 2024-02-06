@@ -1,6 +1,5 @@
 <?php
-
-// php gen/crud.php test name:string price:float valor:int
+ 
 include 'core/conexion.class.php';
 include 'config.php';
 

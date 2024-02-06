@@ -9,7 +9,7 @@
             ?$this->create("cmp/navLog")
             :$this->create("cmp/nav");
 
-         $data = $this->model(item)->get($args[0]);
+         $data = $this->model("item")->get($args[0]);
          $html .= $this->create("panel/item/update",[
            "data" => $data[0],
            "categorias" => $this->model("categoria")->gets()

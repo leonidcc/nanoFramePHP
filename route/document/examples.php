@@ -10,8 +10,7 @@
             ?$this->create("cmp/navLog")
             :$this->create("cmp/nav");
 
-         $html  .= $this->create("/document/examples");         
-         $html  .= $this->create("_cmp/loader1");
+         $html  .= $this->create("/document/examples");       
          $html  .= $this->create("cmp/footer");
          return $this->ret($html);
      }

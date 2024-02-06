@@ -48,7 +48,7 @@
            $usuario = $this->model("users")->get($_POST["id"])[0];
            if($_POST["rol"] != ""){
              $this->model("users")->setRol(
-               mb_strtoupper($usuario->rol." ROL_".$_POST["rol"]),
+              strtoupper($usuario->rol." ROL_".$_POST["rol"]),
                $_POST["id"]
              );
          }

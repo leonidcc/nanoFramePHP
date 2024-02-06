@@ -29,8 +29,7 @@ else if(file_exists($path."/index.php")){
   error_log( $path."/index.php" );
   render($path."/index", $args);
 }
-else if(file_exists($path.".php")){
-  error_log(">>>SDSD");
+else if(file_exists($path.".php")){ 
   render($path, $args);
 }
 else header("location:/error404");
@@ -57,7 +56,8 @@ function render($file, $arg){
           draw($pg->$f($arg));
       }
       else{
-            array_shift($uriP);
+            if($uriP)
+              array_shift($uriP);
             draw( $pg->index($arg));
         };
   }else draw($pg->index());
@@ -79,6 +79,14 @@ function draw($vista){
                 echo $view;
             break;
         default:
+            header('Access-Control-Allow-Origin: *');
+            header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+            header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+            header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+            $method = $_SERVER['REQUEST_METHOD'];
+            if($method == "OPTIONS") {
+            	die();
+            }
             header('Content-Type: application/json; charset=utf-8');
             echo(json_encode($vista));
             break;

@@ -12,7 +12,8 @@
          $data = $this->model("categoria")->gets();
 
          $html .= $this->create("panel/categoria/read", $data);
-
+         $html .= $this->create("panel/categoria/create");
+         
          $html  .= $this->create("cmp/footer");
          return $this->ret($html);
      }

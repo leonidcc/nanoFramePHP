@@ -1,5 +1,24 @@
 <script>
+  document
+    .getElementById("myinfo")
+    .addEventListener("submit", async (event) => {
+      event.preventDefault();
 
+      toastify.info("Enviando cambios al servidor");
+
+      // Obtén los datos del formulario
+      const formData = new FormData(event.target);
+
+      let res = await fetch("/panel/my/update", {
+        method: "POST",
+        body: formData,
+      });
+
+      let data = await res.json();
+
+      if (data.error) toastify.error(data.mensaje);
+      else toastify.success("Operación completada con éxito.");
+    });
 </script>
 
 <kaiwik>
@@ -12,51 +31,58 @@
         </div>
       </div>
 
-      <form class="" action="/panel/my/update" method="post">
-        <div class="row pb-3 ">
+      <form id="myinfo">
+        <div class="row pb-3">
           <div class=" col-md-12">
             <div class="form-floating pb-2">
-               <input
+              <input
                 class="shadow-sm form-control"
-                name="name" value="<?= $name ?>"  required  placeholder="name"
-                >
-               <label >Nombre </label>
-             </div>
+                name="name"
+                value="<?= $name ?>"
+                required
+                placeholder="name"
+              />
+              <label>Nombre </label>
+            </div>
           </div>
           <div class=" col-md-12">
             <div class="form-floating pb-2">
-               <input
+              <input
                 class="shadow-sm form-control"
-                name="tel" value="<?= $phone ?>"  required  placeholder="name"
-                >
-               <label>Número de celular</label>
-             </div>
+                name="tel"
+                value="<?= $phone ?>"
+                required
+                placeholder="name"
+              />
+              <label>Número de celular</label>
+            </div>
           </div>
           <div class=" col-md-12">
             <div class="form-floating pb-2">
-               <input
+              <input
                 class="shadow-sm form-control"
-                readonly  value="<?= $email ?>"  required  placeholder="name"
-                >
-               <label >Email</label>
-             </div>
+                readonly
+                value="<?= $email ?>"
+                required
+                placeholder="name"
+              />
+              <label>Email</label>
+            </div>
           </div>
           <div class="col-md-12">
             <button type="submit" class="btn my-3 btn-primary">
               Guardar
             </button>
           </div>
+        </div>
       </form>
-
     </div>
   </section>
 </kaiwik>
 
 <style>
-
- 
-input, select{
-  border: none !important;
-}
-
+  input,
+  select {
+    border: none !important;
+  }
 </style>

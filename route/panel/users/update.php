@@ -16,7 +16,9 @@
 
          $data = $this->model("users")->get($args[0]);
 
-         $html .= $this->create("panel/users/update", $data[0]);
+         $html .= $this->create("panel/users/update",[
+            "data"=> $data[0]
+         ]);
 
          // $html .= $this->create("panel/users/update",[
          //   "data" => $data[0],
