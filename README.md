@@ -1,45 +1,62 @@
-# NanoFramePHP
-NanoFrame es un entorno de trabajo PHP basado en el patrón MVC, ya tiene programado un sistema de usuarios, productos y categorías para que puedas replicar o añadir nuevas funcionalidades
+```markdown
+# Documentación
 
-PASARELA DE PAGO
+## Introducción
+Lore o um dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-CREATE UN SUBDOMINIO
+## Requerimientos
+- PHP 7.4.11 (puedes probar con otra versión)
+- MySQL
+- PHPMyAdmin recomendado
 
-REPLICAR APP / BALANCER
+## Instalación
+1. Abrir phpMyAdmin y crear una nueva base de datos importando el archivo `Template.sql` o crear la base de datos "Template" y modificar el archivo `config.php`.
+2. Ir a la carpeta del proyecto y abrir una terminal de Linux o Windows.
+   ```bash
+   User@pc: ~/nanoFrameworkPhp$
+   ```
 
+3. Para instalar los valores por defecto de la base de datos, ejecutar:
+   ```bash
+   User@pc: ~/nanoFrameworkPhp$ php gen/installdb.php
+   ```
 
-APACHE / NODE JS EXPRESS
-let's encrypt para generar/instalar SSL
+4. Ejecutar para iniciar un servidor con el proyecto:
+   ```bash
+   User@pc: ~/nanoFrameworkPhp$ php -S localhost:3000
+   ```
 
-investidar DNS SERVER
-=====================
- Enginex configuration
- ======== en apache es mas complejo
-PROXY INVERSO
-server {
-    listen 80;
-    server_name aap2.miweb.com;
+5. Ir al navegador a la URL [http://localhost:3000/](http://localhost:3000/).
 
-    location / {
-        proxy_pass http://localhost:6008/;
-    }
-}
-server {
-    listen 80;
-    server_name app.miweb.com;
+Puedes [iniciar sesión](/ingresar) con:
+- admin@gmail.com
+- vendedor@gmail.com
+- user@gmail.com
+Contraseña: "123123"
 
-    location / {
-        proxy_pass http://localhost:5000/;
-    }
-}
-enginex balancer
-REVISAR BALANCEADORES DE CARGA
-HAPROXY
+## Estructura del proyecto MVC
+- **@recursos:** Imágenes, iconos generales para el entorno.
+- **assets:** Archivos estáticos para su aplicación.
+- **core:** Núcleo del nanoframework, no suele modificarse.
+  - **lib:** Librerías por defecto del nanoframework.
+- **gen:** Script que permite generar código CRUD rápidamente. Intentar:
+   ```bash
+   User@pc: ~/nanoFrameworkPhp$ php core/crud.php tablatest name:string edad:int
+   ```
+   Levantar el servidor e ir a [tablatest](/panel/tablatest) para ver el resultado.
+- **modelos:** Clases sobre las entidades que permiten interactuar con la base de datos.
+- **vistas:** HTML de los componentes y páginas.
+  - Basado en Archivos
+  - Basado en un solo archivo .kaiwik
 
-Create a certicate:
-Empresa
-país
-etc.
-cont letscrip es valido a nivel dominio
+## Rutas
+- **paginas:** Sistema de rutas basado en directorios.
+  - **General:** [Home](/)
+  - **Api:** [Api](/api)
 
-> webHook
+## Helpers
+Puedes codificar funcionalidades generales sobre todo el sistema en `/helper.class.php`.
+
+## Avanzado
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
